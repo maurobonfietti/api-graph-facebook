@@ -17,11 +17,11 @@ $app->get('/[{name}]', function ($request, $response, $args) {
 $app->get('/getuserfullinfo/[{name}]', function ($request, $response, $args) {
     $fb = facebook::getUserFullInfo($request, $response, $args);
 
-    return $fb->getBody();
+    return json_encode(json_decode($fb->getBody()), JSON_PRETTY_PRINT);
 });
 
-$app->get('/fanpage/[{name}]', function ($request, $response, $args) {
-    $fb = facebook::getFanPage($request, $response, $args);
+$app->get('/getfanpageinfo/[{name}]', function ($request, $response, $args) {
+    $fb = facebook::getFanPageInfo($request, $response, $args);
 
-    return $fb->getBody();
+    return json_encode(json_decode($fb->getBody()), JSON_PRETTY_PRINT);
 });

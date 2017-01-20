@@ -57,13 +57,13 @@ class facebook
         return $facebookResponse;
     }
 
-    public static function getFanPage($request, $response, $args)
+    public static function getFanPageInfo($request, $response, $args)
     {
         $fb = self::config();
 
         try {
-            $name = $request->getAttribute('name');
-            $facebookResponse = $fb->get($name);
+            $url = sprintf('/%s?fields=id,name,about,likes,link', $request->getAttribute('name'));
+            $facebookResponse = $fb->get($url);
         } catch (Facebook\Exceptions\FacebookResponseException $e) {
             echo 'Graph returned an error: '.$e->getMessage();
             exit;

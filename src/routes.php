@@ -14,6 +14,12 @@ $app->get('/[{name}]', function ($request, $response, $args) {
     return $fb->getBody();
 });
 
+$app->get('/getuserfullinfo/[{name}]', function ($request, $response, $args) {
+    $fb = facebook::getUserFullInfo($request, $response, $args);
+
+    return $fb->getBody();
+});
+
 $app->get('/fanpage/[{name}]', function ($request, $response, $args) {
     $fb = facebook::getFanPage($request, $response, $args);
 

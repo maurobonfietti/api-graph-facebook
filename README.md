@@ -29,17 +29,18 @@ STATUS 200
 }
 ```
 
+===
 
-## TESTS: TODO :-)
+### TESTS: ToDo ;-)
 
 
 ### NOTE:
 For security reasons, I do not publish my app_id and app_secret data in Git.
 Therefore, in order to use this service, you will need to complete with your own valid data: 'app_id', 'app_secret' and 'default_access_token'.
-In order to do this, you need to register in Facebook developers website: https://developers.facebook.com/apps
+In order to do this, you need to register in Facebook developers website: https://developers.facebook.com/apps.
 So, first get your App Id (and secret key). Then, edit and complete the config file: "src/facebook.php".
 
-### TODO: GET ACCESS TOKENS.
+### TODO/PENDING: GET ACCESS TOKENS.
 Generate securely a valid user access token.
 More info: https://developers.facebook.com/docs/facebook-login/access-tokens/
 

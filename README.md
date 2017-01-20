@@ -2,22 +2,23 @@
 It is a API services to retrieves the profile of one facebook user, using the Facebook API Graph.
 
 
-## HOW TO USE:
+## HOW TO INSTALL:
 
 Download the source code and then run from the cli:
 
 ```
-git clone https://github.com/maurobonfietti/api-graph-facebook.git
-cd api-graph-facebook/
-composer install
-composer start
-curl localhost:8080/123
+$ git clone https://github.com/maurobonfietti/api-graph-facebook.git
+$ cd api-graph-facebook/
+$ composer install
+$ composer start
+$ curl http://localhost:8080/123
+$ #phpunit
 ```
 
 
 ## REQUEST EXAMPLE:
 
-GET localhost:8080/1000
+GET http://localhost:8080/1000
 
 Response:
 STATUS 200
@@ -29,10 +30,28 @@ STATUS 200
 }
 ```
 
+## HOW TO USE:
+
+- Get User Profile (Using Id 1234):
+```
+$ curl http://localhost:8080/1234
+```
+
+- Get User Profile Full Information:
+```
+$ curl http://localhost:8080/getuserfullinfo/1234
+```
+
+- Get Fan Page Information:
+```
+$ curl http://localhost:8080/getfanpageinfo/musimundo
+```
+
 ===
 
 ### TESTS: ToDo ;-)
 
+===
 
 ### NOTE:
 For security reasons, I do not publish my app_id and app_secret data in Git.

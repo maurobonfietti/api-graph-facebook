@@ -12,7 +12,7 @@ $ cd api-graph-facebook/
 $ composer install
 $ composer start
 $ curl http://localhost:8080/123
-$ #phpunit
+$ phpunit
 ```
 
 
@@ -36,22 +36,20 @@ STATUS 200
 ```
 $ curl http://localhost:8080/1234
 ```
+===
 
 - Get User Profile Full Information:
 ```
 $ curl http://localhost:8080/getuserfullinfo/1234
 ```
+===
 
 - Get Fan Page Information:
 ```
-$ curl http://localhost:8080/getfanpageinfo/musimundo
+$ curl http://localhost:8080/getfanpageinfo/mercadoLibre
 ```
-
 ===
 
-### TESTS: ToDo ;-)
-
-===
 
 ### NOTE:
 For security reasons, I do not publish my app_id and app_secret data in Git.

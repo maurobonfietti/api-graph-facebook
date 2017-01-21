@@ -4,7 +4,7 @@ namespace Tests\Functional;
 
 require __DIR__ . '/../../src/facebook.php';
 
-class FacebookApiGraphTest extends BaseTestCase
+class FacebookTest extends BaseTestCase
 {
     /**
      * Test that the index route returns a response containing the text 'Welcome' but not a error.
@@ -53,13 +53,12 @@ class FacebookApiGraphTest extends BaseTestCase
      */
     public function testGetPageFullInfo()
     {
-        $response = $this->runApp('GET', '/getpagefullinfo/mercadolibre');
+        $response = $this->runApp('GET', '/getpagefullinfo/github');
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertContains('id', (string)$response->getBody());
         $this->assertContains('name', (string)$response->getBody());
         $this->assertContains('about', (string)$response->getBody());
-        $this->assertContains('likes', (string)$response->getBody());
         $this->assertContains('link', (string)$response->getBody());
         $this->assertNotContains('error', (string)$response->getBody());
     }

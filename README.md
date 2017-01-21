@@ -1,18 +1,16 @@
 # API GRAPH FACEBOOK
-It is a API services to retrieves the profile of one facebook user, using the Facebook API Graph.
+It's a API services to retrieve the profile of one facebook user, using the Facebook API Graph.
 
 
 ## HOW TO INSTALL:
 
-Download the source code and then run from the cli:
+Download the source code and then execute:
 
 ```
 $ git clone https://github.com/maurobonfietti/api-graph-facebook.git
 $ cd api-graph-facebook/
 $ composer install
 $ composer start
-$ curl http://localhost:8080/123
-$ phpunit
 ```
 
 
@@ -30,6 +28,7 @@ STATUS 200
 }
 ```
 
+
 ## HOW TO USE:
 
 - Get facebook profile from user '1234':
@@ -46,7 +45,7 @@ $ curl http://localhost:8080/getuserfullinfo/1234
 
 - Get information about a facebook fan page:
 ```
-$ curl http://localhost:8080/getpagefullinfo/mercadolibre
+$ curl http://localhost:8080/getpagefullinfo/github
 ```
 ===
 
@@ -61,11 +60,24 @@ $ phpunit
 ```
 
 
-### NOTE:
+### IMPORTANT:
 For security reasons, I do not publish my app_id and app_secret data in Git.
 Therefore, in order to use this service, you will need to complete with your own valid data: 'app_id', 'app_secret' and 'default_access_token'.
 In order to do this, you need to register in Facebook developers website: https://developers.facebook.com/apps.
-So, first get your App Id (and secret key). Then, edit and complete the config file: "src/facebook.php".
+
+- So, first get your App Id (and App Secret Key).
+- Then, edit and complete the config file: "src/facebook.php":
+
+```
+    // Configure the Facebook App Parameters.
+    $config = new Facebook\Facebook([
+        'default_graph_version' => 'v2.8',
+        'app_id' => '{app-id}',
+        'app_secret' => '{app-secret}',
+        'default_access_token' => '{access-token}',
+    ]);
+```
+
 
 ### TODO/PENDING: GET ACCESS TOKENS.
 Generate securely a valid user access token.

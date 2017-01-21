@@ -20,8 +20,8 @@ $app->get('/getuserfullinfo/[{name}]', function ($request, $response, $args) {
     return json_encode(json_decode($fb->getBody()), JSON_PRETTY_PRINT);
 });
 
-$app->get('/getfanpageinfo/[{name}]', function ($request, $response, $args) {
-    $fb = facebook::getFanPageInfo($request, $response, $args);
+$app->get('/getpagefullinfo/[{name}]', function ($request, $response, $args) {
+    $fb = facebook::getPageFullInfo($request, $response, $args);
 
     return json_encode(json_decode($fb->getBody()), JSON_PRETTY_PRINT);
 });

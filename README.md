@@ -32,23 +32,33 @@ STATUS 200
 
 ## HOW TO USE:
 
-- Get User Profile (Using Id 1234):
+- Get facebook profile from user '1234':
 ```
 $ curl http://localhost:8080/1234
 ```
 ===
 
-- Get User Profile Full Information:
+- Get full information about user profile '1234':
 ```
 $ curl http://localhost:8080/getuserfullinfo/1234
 ```
 ===
 
-- Get Fan Page Information:
+- Get information about a facebook fan page:
 ```
-$ curl http://localhost:8080/getfanpageinfo/mercadoLibre
+$ curl http://localhost:8080/getpagefullinfo/mercadolibre
 ```
 ===
+
+
+## RUN TESTS:
+
+Go to the root path of the project, and then run all tests with phpunit:
+
+```
+$ cd api-graph-facebook/
+$ phpunit
+```
 
 
 ### NOTE:

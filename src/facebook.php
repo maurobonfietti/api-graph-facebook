@@ -57,7 +57,7 @@ class facebook
         return $facebookResponse;
     }
 
-    public static function getFanPageInfo($request, $response, $args)
+    public static function getPageFullInfo($request, $response, $args)
     {
         $fb = self::config();
 

@@ -1,5 +1,11 @@
 <?php
 
+$app->get('/version', function ($request, $response, $args) {
+    $version = ['api_version' => '0.1.2'];
+
+    return json_encode($version, JSON_PRETTY_PRINT);
+});
+
 $app->get('/[{name}]', function ($request, $response, $args) {
     $name = $request->getAttribute('name');
 
@@ -11,16 +17,16 @@ $app->get('/[{name}]', function ($request, $response, $args) {
 
     $fb = facebook::getUser($request, $response, $args);
 
-    return $fb->getBody();
+    return json_encode(json_decode($fb->getBody()), JSON_PRETTY_PRINT);
 });
 
-$app->get('/getuserfullinfo/[{name}]', function ($request, $response, $args) {
+$app->get('/users/[{name}]', function ($request, $response, $args) {
     $fb = facebook::getUserFullInfo($request, $response, $args);
 
     return json_encode(json_decode($fb->getBody()), JSON_PRETTY_PRINT);
 });
 
-$app->get('/getpagefullinfo/[{name}]', function ($request, $response, $args) {
+$app->get('/pages/[{name}]', function ($request, $response, $args) {
     $fb = facebook::getPageFullInfo($request, $response, $args);
 
     return json_encode(json_decode($fb->getBody()), JSON_PRETTY_PRINT);

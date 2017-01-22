@@ -34,11 +34,11 @@ class FacebookTest extends BaseTestCase
     }
 
     /**
-     * Test that endpoint GetUserFullInfo return valid data.
+     * Test that endpoint users return completed and valid data.
      */
     public function testGetUserFullInfo()
     {
-        $response = $this->runApp('GET', '/getuserfullinfo/1000');
+        $response = $this->runApp('GET', '/users/1000');
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertContains('id', (string)$response->getBody());
@@ -49,11 +49,11 @@ class FacebookTest extends BaseTestCase
     }
 
     /**
-     * Test that endpoint testGetPageFullInfo return valid data.
+     * Test that endpoint pages return valid data about a Facebook Fan Page.
      */
     public function testGetPageFullInfo()
     {
-        $response = $this->runApp('GET', '/getpagefullinfo/github');
+        $response = $this->runApp('GET', '/pages/github');
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertContains('id', (string)$response->getBody());

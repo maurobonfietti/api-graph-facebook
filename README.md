@@ -101,6 +101,13 @@ Go to the root path of the project, and then run all tests with phpunit:
 ```
 $ cd api-graph-facebook/
 $ phpunit
+PHPUnit 5.5.4 by Sebastian Bergmann and contributors.
+
+.....                                                               5 / 5 (100%)
+
+Time: 1.62 seconds, Memory: 4.00MB
+
+OK (5 tests, 23 assertions)
 ```
 
 

@@ -1,5 +1,11 @@
 <?php
 
+$app->get('/version', function ($request, $response, $args) {
+    $version = ['api_version' => '0.1.2'];
+
+    return json_encode($version, JSON_PRETTY_PRINT);
+});
+
 $app->get('/[{name}]', function ($request, $response, $args) {
     $name = $request->getAttribute('name');
 

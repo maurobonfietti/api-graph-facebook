@@ -2,7 +2,7 @@
 
 namespace Tests\Functional;
 
-require __DIR__ . '/../../src/facebook.php';
+require __DIR__.'/../../src/facebook.php';
 
 class FacebookTest extends BaseTestCase
 {
@@ -14,9 +14,9 @@ class FacebookTest extends BaseTestCase
         $response = $this->runApp('GET', '/');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('Welcome', (string)$response->getBody());
-        $this->assertNotContains('error', (string)$response->getBody());
-        $this->assertNotContains('connect', (string)$response->getBody());
+        $this->assertContains('Welcome', (string) $response->getBody());
+        $this->assertNotContains('error', (string) $response->getBody());
+        $this->assertNotContains('connect', (string) $response->getBody());
     }
 
     /**
@@ -27,10 +27,10 @@ class FacebookTest extends BaseTestCase
         $response = $this->runApp('GET', '/6');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('id', (string)$response->getBody());
-        $this->assertContains('first_name', (string)$response->getBody());
-        $this->assertContains('Dustin', (string)$response->getBody());
-        $this->assertNotContains('error', (string)$response->getBody());
+        $this->assertContains('id', (string) $response->getBody());
+        $this->assertContains('first_name', (string) $response->getBody());
+        $this->assertContains('Dustin', (string) $response->getBody());
+        $this->assertNotContains('error', (string) $response->getBody());
     }
 
     /**
@@ -41,11 +41,11 @@ class FacebookTest extends BaseTestCase
         $response = $this->runApp('GET', '/users/1000');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('id', (string)$response->getBody());
-        $this->assertContains('first_name', (string)$response->getBody());
-        $this->assertContains('link', (string)$response->getBody());
-        $this->assertContains('source', (string)$response->getBody());
-        $this->assertNotContains('error', (string)$response->getBody());
+        $this->assertContains('id', (string) $response->getBody());
+        $this->assertContains('first_name', (string) $response->getBody());
+        $this->assertContains('link', (string) $response->getBody());
+        $this->assertContains('source', (string) $response->getBody());
+        $this->assertNotContains('error', (string) $response->getBody());
     }
 
     /**
@@ -56,21 +56,21 @@ class FacebookTest extends BaseTestCase
         $response = $this->runApp('GET', '/pages/github');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('id', (string)$response->getBody());
-        $this->assertContains('name', (string)$response->getBody());
-        $this->assertContains('about', (string)$response->getBody());
-        $this->assertContains('link', (string)$response->getBody());
-        $this->assertNotContains('error', (string)$response->getBody());
+        $this->assertContains('id', (string) $response->getBody());
+        $this->assertContains('name', (string) $response->getBody());
+        $this->assertContains('about', (string) $response->getBody());
+        $this->assertContains('link', (string) $response->getBody());
+        $this->assertNotContains('error', (string) $response->getBody());
     }
 
     /**
-     * Test that the index route won't accept a post request
+     * Test that the index route won't accept a post request.
      */
     public function testPostHomepageNotAllowed()
     {
         $response = $this->runApp('POST', '/', ['test']);
 
         $this->assertEquals(405, $response->getStatusCode());
-        $this->assertContains('Method not allowed', (string)$response->getBody());
+        $this->assertContains('Method not allowed', (string) $response->getBody());
     }
 }

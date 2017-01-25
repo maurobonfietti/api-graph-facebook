@@ -21,7 +21,7 @@ Requests Examples:
 
 ### Get facebook profile from user '1234':
 ```
-$ curl http://localhost:8080/1234
+$ curl http://localhost:8080/users/1234
 ```
 Response:
 ```
@@ -38,7 +38,7 @@ Status: 200 OK
 
 ### Get full information about user profile '1234':
 ```
-$ curl http://localhost:8080/users/1234
+$ curl http://localhost:8080/users/fullinfo/1234
 ```
 Response:
 ```

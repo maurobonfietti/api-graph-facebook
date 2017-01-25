@@ -24,7 +24,7 @@ class FacebookTest extends BaseTestCase
      */
     public function testGetUser()
     {
-        $response = $this->runApp('GET', '/6');
+        $response = $this->runApp('GET', '/users/6');
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertContains('id', (string) $response->getBody());
@@ -38,7 +38,7 @@ class FacebookTest extends BaseTestCase
      */
     public function testGetUserFullInfo()
     {
-        $response = $this->runApp('GET', '/users/1000');
+        $response = $this->runApp('GET', '/users/fullinfo/1000');
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertContains('id', (string) $response->getBody());

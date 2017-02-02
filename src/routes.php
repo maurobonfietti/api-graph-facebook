@@ -1,36 +1,34 @@
 <?php
 
 $app->get('/version', function () {
-    $msg = ['info' => ['api_version' => '0.1.3']];
+    $msg = ['info' => ['api_version' => '0.1.4']];
 
-    return json_encode($msg, JSON_PRETTY_PRINT);
+    return $this->response->withJson($msg);
 });
 
 $app->get('/', function () {
-    $msg = [
-        'info' => [
+    $msg = ['info' => [
             'code' => 'Welcome!',
-            'message' => 'Try using a facebook profile like: users/1234',
-        ],
-    ];
+            'message' => 'Try using a facebook profile, for example: users/1234',
+    ]];
 
-    return json_encode($msg, JSON_PRETTY_PRINT);
+    return $this->response->withJson($msg);
 });
 
-$app->get('/users/[{name}]', function ($request, $response, $args) {
-    $fb = facebook::getUser($request, $response, $args);
+$app->get('/users/[{name}]', function ($request) {
+    $fb = facebook::getUser($request);
 
-    return json_encode(json_decode($fb->getBody()), JSON_PRETTY_PRINT);
+    return $this->response->withJson(json_decode($fb->getBody()));
 });
 
-$app->get('/users/fullinfo/[{name}]', function ($request, $response, $args) {
-    $fb = facebook::getUserFullInfo($request, $response, $args);
+$app->get('/users/fullinfo/[{name}]', function ($request) {
+    $fb = facebook::getUserFullInfo($request);
 
-    return json_encode(json_decode($fb->getBody()), JSON_PRETTY_PRINT);
+    return $this->response->withJson(json_decode($fb->getBody()));
 });
 
-$app->get('/pages/[{name}]', function ($request, $response, $args) {
-    $fb = facebook::getPageFullInfo($request, $response, $args);
+$app->get('/pages/[{name}]', function ($request) {
+    $fb = facebook::getPageFullInfo($request);
 
-    return json_encode(json_decode($fb->getBody()), JSON_PRETTY_PRINT);
+    return $this->response->withJson(json_decode($fb->getBody()));
 });

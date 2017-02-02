@@ -23,7 +23,7 @@ class facebook
         return $config;
     }
 
-    public static function getUser($request, $response, $args)
+    public static function getUser($request)
     {
         $fb = self::config();
 
@@ -42,7 +42,7 @@ class facebook
         return $facebookResponse;
     }
 
-    public static function getUserFullInfo($request, $response, $args)
+    public static function getUserFullInfo($request)
     {
         $fb = self::config();
 
@@ -61,12 +61,13 @@ class facebook
         return $facebookResponse;
     }
 
-    public static function getPageFullInfo($request, $response, $args)
+    public static function getPageFullInfo($request)
     {
         $fb = self::config();
 
         try {
-            $url = sprintf('/%s?fields=id,name,about,likes,link', $request->getAttribute('name'));
+            $name = $request->getAttribute('name');
+            $url = sprintf('/%s?fields=id,name,about,likes,link', $name);
             $facebookResponse = $fb->get($url);
         } catch (Facebook\Exceptions\FacebookResponseException $e) {
             echo 'Graph returned an error: '.$e->getMessage();

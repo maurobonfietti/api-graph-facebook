@@ -12,10 +12,12 @@ class facebook
             $url = sprintf('/%s?fields=id,first_name,last_name', $name);
             $facebookResponse = $fb->get($url);
         } catch (Facebook\Exceptions\FacebookResponseException $e) {
-            echo 'Graph returned an error: '.$e->getMessage();
+            http_response_code($e->getHttpStatusCode());
+            echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
             exit;
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
-            echo 'Facebook SDK returned an error: '.$e->getMessage();
+            http_response_code($e->getHttpStatusCode());
+            echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
             exit;
         }
 
@@ -29,10 +31,12 @@ class facebook
             $url = sprintf('/%s?%s', $request->getAttribute('name'), $fields);
             $facebookResponse = $fb->get($url);
         } catch (Facebook\Exceptions\FacebookResponseException $e) {
-            echo 'Graph returned an error: '.$e->getMessage();
+            http_response_code($e->getHttpStatusCode());
+            echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
             exit;
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
-            echo 'Facebook SDK returned an error: '.$e->getMessage();
+            http_response_code($e->getHttpStatusCode());
+            echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
             exit;
         }
 
@@ -46,10 +50,12 @@ class facebook
             $url = sprintf('/%s?fields=id,name,about,likes,link', $name);
             $facebookResponse = $fb->get($url);
         } catch (Facebook\Exceptions\FacebookResponseException $e) {
-            echo 'Graph returned an error: '.$e->getMessage();
+            http_response_code($e->getHttpStatusCode());
+            echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
             exit;
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
-            echo 'Facebook SDK returned an error: '.$e->getMessage();
+            http_response_code($e->getHttpStatusCode());
+            echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
             exit;
         }
 

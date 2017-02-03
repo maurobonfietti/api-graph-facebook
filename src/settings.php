@@ -23,7 +23,7 @@ return [
             'default_graph_version' => 'v2.8',
             'app_id' => 'X',
             'app_secret' => 'Y',
-            'default_access_token' => 'X',
+            'default_access_token' => 'Z',
         ],
     ],
 ];

@@ -16,5 +16,14 @@ return [
             'path' => __DIR__.'/../logs/app.log',
             'level' => \Monolog\Logger::DEBUG,
         ],
+
+        // Configure a Facebook Api Graph Parameters.
+        // Get your app_id and app_secret in: https://developers.facebook.com/apps.
+        'facebook' => [
+            'default_graph_version' => 'v2.8',
+            'app_id' => 'X',
+            'app_secret' => 'Y',
+            'default_access_token' => 'X',
+        ],
     ],
 ];

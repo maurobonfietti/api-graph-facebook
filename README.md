@@ -123,16 +123,17 @@ Therefore, in order to use this service, you will need to complete with your own
 In order to do this, you need to register in Facebook developers website: https://developers.facebook.com/apps.
 
 - So, first get your App Id (and App Secret Key).
-- Then, edit and complete the config file: "src/facebook.php":
+- Then, edit and complete the config file: "src/settings.php":
 
 ```
-    // Configure the Facebook App Parameters.
-    $config = new Facebook\Facebook([
+    // Configure a Facebook Api Graph Parameters.
+    // Get your app_id and app_secret in: https://developers.facebook.com/apps.
+    'facebook' => [
         'default_graph_version' => 'v2.8',
         'app_id' => '{app-id}',
         'app_secret' => '{app-secret}',
         'default_access_token' => '{access-token}',
-    ]);
+    ],
 ```
 
 

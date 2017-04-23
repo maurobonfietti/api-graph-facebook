@@ -27,8 +27,5 @@ require __DIR__.'/../src/middleware.php';
 // Register routes
 require __DIR__.'/../src/routes.php';
 
-// Register facebook api graph
-require __DIR__.'/../src/facebook.php';
-
 // Run app
 $app->run();

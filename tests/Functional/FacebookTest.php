@@ -2,8 +2,6 @@
 
 namespace Tests\Functional;
 
-require __DIR__.'/../../src/facebook.php';
-
 class FacebookTest extends BaseTestCase
 {
     /**

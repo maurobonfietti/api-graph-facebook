@@ -16,13 +16,13 @@ $app->get('/', function () {
 });
 
 $app->get('/users/[{name}]', function ($request) {
-    $fb = facebook::getUser($request, $this->fb);
+    $fb = App\facebook::getUser($request, $this->fb);
 
     return $this->response->withJson(json_decode($fb->getBody()));
 });
 
 $app->get('/pages/[{name}]', function ($request) {
-    $fb = facebook::getPageFullInfo($request, $this->fb);
+    $fb = App\facebook::getPageFullInfo($request, $this->fb);
 
     return $this->response->withJson(json_decode($fb->getBody()));
 });

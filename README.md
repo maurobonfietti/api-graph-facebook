@@ -90,7 +90,6 @@ In order to do this, you need to register in Facebook developers website: https:
     // Configure a Facebook Api Graph Parameters.
     // Get your app_id and app_secret in: https://developers.facebook.com/apps.
     'facebook' => [
-        'default_graph_version' => 'v2.8',
         'app_id' => '{app-id}',
         'app_secret' => '{app-secret}',
     ],

@@ -6,18 +6,15 @@
 class facebook
 {
     /**
-     * Get profile of one facebook user.
-     *
-     * @param Request $request
+     * Get response from Facebook API Graph.
+     * @param string $url
      * @param Facebook\Facebook $fb
      * @return Facebook\FacebookResponse
      */
-    public static function getUser($request, $fb)
+    public static function getFacebookResponse($url, $fb)
     {
         try {
-            $name = $request->getAttribute('name');
-            $url = sprintf('/%s?fields=id,first_name,last_name', $name);
-            $facebookResponse = $fb->get($url, $fb->getApp()->getAccessToken());
+            return $fb->get($url, $fb->getApp()->getAccessToken());
         } catch (Facebook\Exceptions\FacebookResponseException $e) {
             http_response_code($e->getHttpStatusCode());
             echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
@@ -27,8 +24,21 @@ class facebook
             echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
             exit;
         }
+    }
 
-        return $facebookResponse;
+    /**
+     * Get profile of one facebook user.
+     *
+     * @param Request $request
+     * @param Facebook\Facebook $fb
+     * @return Facebook\FacebookResponse
+     */
+    public static function getUser($request, $fb)
+    {
+        $name = $request->getAttribute('name');
+        $url = sprintf('/%s?fields=id,first_name,last_name', $name);
+
+        return self::getFacebookResponse($url, $fb);
     }
 
     /**
@@ -40,20 +50,9 @@ class facebook
      */
     public static function getPageFullInfo($request, $fb)
     {
-        try {
-            $name = $request->getAttribute('name');
-            $url = sprintf('/%s?fields=id,name,about,likes,link', $name);
-            $facebookResponse = $fb->get($url, $fb->getApp()->getAccessToken());
-        } catch (Facebook\Exceptions\FacebookResponseException $e) {
-            http_response_code($e->getHttpStatusCode());
-            echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
-            exit;
-        } catch (Facebook\Exceptions\FacebookSDKException $e) {
-            http_response_code($e->getHttpStatusCode());
-            echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
-            exit;
-        }
+        $name = $request->getAttribute('name');
+        $url = sprintf('/%s?fields=id,name,about,likes,link', $name);
 
-        return $facebookResponse;
+        return self::getFacebookResponse($url, $fb);
     }
 }

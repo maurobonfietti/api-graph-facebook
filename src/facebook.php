@@ -5,6 +5,13 @@
  */
 class facebook
 {
+    /**
+     * Get profile of one facebook user.
+     *
+     * @param Request $request
+     * @param Facebook\Facebook $fb
+     * @return Facebook\FacebookResponse
+     */
     public static function getUser($request, $fb)
     {
         try {
@@ -24,6 +31,13 @@ class facebook
         return $facebookResponse;
     }
 
+    /**
+     * Get info about a fan page facebook.
+     *
+     * @param Request $request
+     * @param Facebook\Facebook $fb
+     * @return Facebook\FacebookResponse
+     */
     public static function getPageFullInfo($request, $fb)
     {
         try {

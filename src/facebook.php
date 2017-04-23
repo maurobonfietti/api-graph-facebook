@@ -18,13 +18,9 @@ class facebook
         try {
             return $fb->get($url, $fb->getApp()->getAccessToken());
         } catch (\Facebook\Exceptions\FacebookResponseException $e) {
-            http_response_code($e->getHttpStatusCode());
-            echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
-            exit;
+            return $e;
         } catch (\Facebook\Exceptions\FacebookSDKException $e) {
-            http_response_code($e->getHttpStatusCode());
-            echo json_encode($e->getResponseData(), JSON_PRETTY_PRINT);
-            exit;
+            return $e;
         }
     }
 

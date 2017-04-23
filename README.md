@@ -36,46 +36,6 @@ Status: 200 OK
 ===
 
 
-### Get full information about user profile '1234':
-```
-$ curl http://localhost:8080/users/fullinfo/1234
-```
-Response:
-```
-Status: 200 OK
-
-{
-    "id": "1234",
-    "name": "Senait Tesfai",
-    "first_name": "Senait",
-    "last_name": "Tesfai",
-    "context": {
-        "mutual_likes": {
-            "data": [],
-            "summary": {
-                "total_count": 0
-            }
-        },
-        "id": "dXNlcl9jb250ZAXh0OgGQZBhJEsEfUf2L1O5DPpbmzCu3vnoOBOyZB1rZClGl8Gl9aAz3HPiiwnn1vGZCZCQD5VdcuhMdLInL4qCIXtpItJPg6PrD4SPE3E0zLzZCxAaB3bBosZD"
-    },
-    "cover": {
-        "id": "10102509802836791",
-        "offset_y": 8,
-        "source": "https:\/\/fb-s-d-a.akamaihd.net\/h-ak-xla1\/v\/t1.0-9\/12308286_10102509802836791_4849151805274911326_n.jpg?oh=0458137d6705137083ea4d67716386ed&oe=591C5FF0&__gda__=1493351880_9e5c90064b4d78b2c4c90094349de64b"
-    },
-    "install_type": "UNKNOWN",
-    "installed": false,
-    "link": "https:\/\/www.facebook.com\/app_scoped_user_id\/1234\/",
-    "name_format": "{first} {last}",
-    "test_group": 9,
-    "third_party_id": "6thflcOIcFsZbb13Unr7SJvHLsI",
-    "updated_time": "2016-12-18T21:45:57+0000",
-    "viewer_can_send_gift": false
-}
-```
-===
-
-
 ### Get information about a facebook fan page like 'github':
 ```
 $ curl http://localhost:8080/pages/github
@@ -103,11 +63,12 @@ $ cd api-graph-facebook/
 $ phpunit
 PHPUnit 5.5.4 by Sebastian Bergmann and contributors.
 
-.....                                                               5 / 5 (100%)
+....                                                                4 / 4 (100%)
 
-Time: 1.62 seconds, Memory: 4.00MB
+Time: 1.21 seconds, Memory: 4.00MB
 
-OK (5 tests, 23 assertions)
+OK (4 tests, 17 assertions)
+
 ```
 
 
@@ -132,15 +93,8 @@ In order to do this, you need to register in Facebook developers website: https:
         'default_graph_version' => 'v2.8',
         'app_id' => '{app-id}',
         'app_secret' => '{app-secret}',
-        'default_access_token' => '{access-token}',
     ],
 ```
-
-
-### TODO/PENDING: GET ACCESS TOKENS.
-
-Generate securely a valid user access token.
-More info: https://developers.facebook.com/docs/facebook-login/access-tokens/
 
 
 ## NEXT:

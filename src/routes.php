@@ -21,11 +21,11 @@ $app->get('/users/[{name}]', function ($request) {
     return $this->response->withJson(json_decode($fb->getBody()));
 });
 
-$app->get('/users/fullinfo/[{name}]', function ($request) {
-    $fb = facebook::getUserFullInfo($request, $this->fb);
-
-    return $this->response->withJson(json_decode($fb->getBody()));
-});
+//$app->get('/users/fullinfo/[{name}]', function ($request) {
+//    $fb = facebook::getUserFullInfo($request, $this->fb);
+//
+//    return $this->response->withJson(json_decode($fb->getBody()));
+//});
 
 $app->get('/pages/[{name}]', function ($request) {
     $fb = facebook::getPageFullInfo($request, $this->fb);

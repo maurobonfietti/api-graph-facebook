@@ -28,7 +28,7 @@ $container['fb'] = function ($c) {
         'default_graph_version' => $settings['default_graph_version'],
         'app_id' => $settings['app_id'],
         'app_secret' => $settings['app_secret'],
-        'default_access_token' => $settings['default_access_token'],
+//        'default_access_token' => $settings['default_access_token'],
     ]);
 
     return $config;

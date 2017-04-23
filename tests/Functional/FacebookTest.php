@@ -34,21 +34,6 @@ class FacebookTest extends BaseTestCase
     }
 
     /**
-     * Test that endpoint users return completed and valid data.
-     */
-//    public function testGetUserFullInfo()
-//    {
-//        $response = $this->runApp('GET', '/users/fullinfo/1000');
-//
-//        $this->assertEquals(200, $response->getStatusCode());
-//        $this->assertContains('id', (string) $response->getBody());
-//        $this->assertContains('first_name', (string) $response->getBody());
-//        $this->assertContains('link', (string) $response->getBody());
-//        $this->assertContains('source', (string) $response->getBody());
-//        $this->assertNotContains('error', (string) $response->getBody());
-//    }
-
-    /**
      * Test that endpoint pages return valid data about a Facebook Fan Page.
      */
     public function testGetPageFullInfo()

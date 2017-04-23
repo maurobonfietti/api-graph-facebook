@@ -18,6 +18,18 @@ class FacebookTest extends BaseTestCase
     }
 
     /**
+     * Test Get Version.
+     */
+    public function testGetVersion()
+    {
+        $response = $this->runApp('GET', '/version');
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertContains('api_version', (string) $response->getBody());
+        $this->assertNotContains('error', (string) $response->getBody());
+    }
+
+    /**
      * Test that the index route with optional name argument returns a facebook profile info.
      */
     public function testGetUser()
@@ -29,6 +41,19 @@ class FacebookTest extends BaseTestCase
         $this->assertContains('first_name', (string) $response->getBody());
         $this->assertContains('Dustin', (string) $response->getBody());
         $this->assertNotContains('error', (string) $response->getBody());
+    }
+
+    /**
+     * Test testGetUserNotFound.
+     */
+    public function testGetUserNotFound()
+    {
+        $response = $this->runApp('GET', '/users/123456');
+
+        $this->assertEquals(400, $response->getStatusCode());
+        $this->assertNotContains('first_name', (string) $response->getBody());
+        $this->assertNotContains('last_name', (string) $response->getBody());
+        $this->assertContains('error', (string) $response->getBody());
     }
 
     /**
@@ -44,6 +69,20 @@ class FacebookTest extends BaseTestCase
         $this->assertContains('about', (string) $response->getBody());
         $this->assertContains('link', (string) $response->getBody());
         $this->assertNotContains('error', (string) $response->getBody());
+    }
+
+    /**
+     * Test testGetPageFullInfoNotFound.
+     */
+    public function testGetPageFullInfoNotFound()
+    {
+        $response = $this->runApp('GET', '/pages/github123456');
+
+        $this->assertEquals(404, $response->getStatusCode());
+        $this->assertNotContains('name', (string) $response->getBody());
+        $this->assertNotContains('about', (string) $response->getBody());
+        $this->assertNotContains('link', (string) $response->getBody());
+        $this->assertContains('error', (string) $response->getBody());
     }
 
     /**

@@ -80,7 +80,7 @@ Read how to fix the error: "Graph returned an error: Invalid OAuth access token"
 ### IMPORTANT NOTE:
 
 For security reasons, I do not publish my app_id and app_secret data in Git.
-Therefore, in order to use this service, you will need to complete with your own valid data: 'app_id', 'app_secret' and 'default_access_token'.
+Therefore, if you want to use this service, you will need to complete with your own valid data: 'app_id' and 'app_secret'.
 In order to do this, you need to register in Facebook developers website: https://developers.facebook.com/apps.
 
 - So, first get your App Id (and App Secret Key).

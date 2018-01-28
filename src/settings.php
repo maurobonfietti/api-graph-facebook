@@ -20,9 +20,9 @@ return [
         // Configure a Facebook Api Graph Parameters.
         // Get your app_id and app_secret in: https://developers.facebook.com/apps.
         'facebook' => [
-            'default_graph_version' => 'v2.9',
-            'app_id' => 'X',
-            'app_secret' => 'Y',
+            'app_id' => getenv('FACEBOOK_APP_ID'),
+            'app_secret' => getenv('FACEBOOK_APP_SECRET'),
+            'default_graph_version' => getenv('FACEBOOK_APP_VERSION'),
         ],
     ],
 ];

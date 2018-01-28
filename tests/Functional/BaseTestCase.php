@@ -51,6 +51,10 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
         // Set up a response object
         $response = new Response();
 
+        // Use DotEnv config file
+        $dotenv = new \Dotenv\Dotenv(__DIR__.'/../../');
+        $dotenv->load();
+
         // Use the application settings
         $settings = require __DIR__ . '/../../src/settings.php';
 

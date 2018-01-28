@@ -17,7 +17,7 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
 
-        // Facebook Api Graph Params.
+        // Facebook Api Graph Params
         'facebook' => [
             'app_id' => getenv('FACEBOOK_APP_ID'),
             'app_secret' => getenv('FACEBOOK_APP_SECRET'),

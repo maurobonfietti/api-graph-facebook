@@ -1,16 +1,16 @@
 <?php
 
-$app->get('/version', function () {
-    $msg = ['info' => ['api_version' => '17.04']];
+$app->get('/', function () {
+    $msg = ['info' => [
+            'code' => 'Welcome!',
+            'message' => 'Try getting a Facebook profile, for example: users/1234',
+    ]];
 
     return $this->response->withJson($msg);
 });
 
-$app->get('/', function () {
-    $msg = ['info' => [
-            'code' => 'Welcome!',
-            'message' => 'Try using a facebook profile, for example: users/1234',
-    ]];
+$app->get('/version', function () {
+    $msg = ['info' => ['api_version' => '18.01']];
 
     return $this->response->withJson($msg);
 });

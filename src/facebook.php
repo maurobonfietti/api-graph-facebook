@@ -9,6 +9,7 @@ class facebook
 {
     /**
      * Get response from Facebook API Graph.
+     *
      * @param string $url
      * @param \Facebook\Facebook $fb
      * @return \Facebook\FacebookResponse
@@ -25,7 +26,7 @@ class facebook
     }
 
     /**
-     * Get profile of one facebook user.
+     * Get profile of one Facebook user.
      *
      * @param Request $request
      * @param \Facebook\Facebook $fb
@@ -40,7 +41,7 @@ class facebook
     }
 
     /**
-     * Get info about a fan page facebook.
+     * Get info about a fan page Facebook.
      *
      * @param Request $request
      * @param Facebook\Facebook $fb

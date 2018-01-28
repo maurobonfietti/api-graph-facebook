@@ -1,5 +1,7 @@
 <?php
 
+use App\ApiError;
+
 $container = $app->getContainer();
 
 // Facebook API Graph
@@ -13,4 +15,9 @@ $container['fb'] = function ($c) {
     ]);
 
     return $config;
+};
+
+// Api Error Handler
+$container["errorHandler"] = function () {
+    return new ApiError;
 };

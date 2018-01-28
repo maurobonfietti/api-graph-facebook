@@ -64,11 +64,11 @@ $ cd api-graph-facebook/
 $ phpunit
 PHPUnit 5.5.4 by Sebastian Bergmann and contributors.
 
-....                                                                4 / 4 (100%)
+.......                                                             7 / 7 (100%)
 
-Time: 1.21 seconds, Memory: 4.00MB
+Time: 2.44 seconds, Memory: 4.00MB
 
-OK (4 tests, 17 assertions)
+OK (7 tests, 29 assertions)
 
 ```
 
@@ -81,18 +81,15 @@ Read how to fix the error: "Graph returned an error: Invalid OAuth access token"
 ### IMPORTANT NOTE:
 
 For security reasons, I do not publish my FACEBOOK_APP_ID and FACEBOOK_APP_SECRET data on git.
+
 Therefore, if you want to use this service, you will need to complete with your own valid data.
 In order to do this, you need to register in Facebook developers website: https://developers.facebook.com/apps.
 
 - So, first get your App Id (and App Secret Key).
-- Then, copy ".env.example" file as ".env":
-- Edit config file: ".env":
+- Then, copy `.env.example` file to `.env`:
+- Edit and complete your config file: `.env`:
 
 ```
-# Configure your Facebook Api Graph Parameters.
-# Get your FACEBOOK_APP_ID and FACEBOOK_APP_SECRET,
-# on: "https://developers.facebook.com/apps".
-
 FACEBOOK_APP_ID = '{YOUR-FB-APP-ID}'
 FACEBOOK_APP_SECRET = '{YOUR-FB-APP-SECRET}'
 FACEBOOK_APP_VERSION = 'v2.9'

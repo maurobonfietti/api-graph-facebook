@@ -1,14 +1,14 @@
 {
-    "name": "slim/slim-skeleton",
-    "description": "A Slim Framework skeleton application for rapid development",
-    "keywords": ["microframework", "rest", "router", "psr7"],
-    "homepage": "http://github.com/slimphp/Slim-Skeleton",
+    "name": "api-graph-facebook",
+    "description": "Get information using the Facebook API Graph.",
+    "keywords": ["microframework", "slim", "php", "api", "facebook"],
+    "homepage": "https://github.com/maurobonfietti/api-graph-facebook",
     "license": "MIT",
     "authors": [
         {
-            "name": "Josh Lockhart",
-            "email": "info@joshlockhart.com",
-            "homepage": "http://www.joshlockhart.com/"
+            "name": "Mauro Bonfietti",
+            "email": "mauro.bonfietti@gmail.com",
+            "homepage": "https://github.com/maurobonfietti"
         }
     ],
     "require": {
@@ -28,9 +28,8 @@
             "Tests\\": "tests/"
         }
     },
-	"scripts": {
+    "scripts": {
         "start": "php -S 0.0.0.0:8080 -t public public/index.php",
         "test": "phpunit"
-	}
-
+    }
 }

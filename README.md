@@ -5,14 +5,36 @@ It's a API services to retrieve the profile of one facebook user, using the Face
 
 ## HOW TO INSTALL:
 
-Download the source code and then execute:
+Download the source code:
 
 ```
 $ git clone https://github.com/maurobonfietti/api-graph-facebook.git
 $ cd api-graph-facebook/
 $ cp .env.example .env
+```
+
+Edit and complete the config file `.env`, and then execute:
+
+```
 $ composer install
 $ composer start
+$ composer test
+```
+
+### IMPORTANT NOTE:
+
+For security reasons, I do not publish my FACEBOOK_APP_ID and FACEBOOK_APP_SECRET data on git.
+
+Therefore, if you want to use this service, you will need to complete with your own valid data.
+In order to do this, you need to register in Facebook developers website: https://developers.facebook.com/apps.
+
+- So, first get your App Id (and App Secret Key).
+- Then, edit and complete the config file: `.env`:
+
+```
+FACEBOOK_APP_ID = '{YOUR-FB-APP-ID}'
+FACEBOOK_APP_SECRET = '{YOUR-FB-APP-SECRET}'
+FACEBOOK_APP_VERSION = 'v2.9'
 ```
 
 
@@ -73,31 +95,8 @@ OK (7 tests, 29 assertions)
 ```
 
 
-## OAUTH ACCESS TOKEN:
-
-Read how to fix the error: "Graph returned an error: Invalid OAuth access token".
-
-
-### IMPORTANT NOTE:
-
-For security reasons, I do not publish my FACEBOOK_APP_ID and FACEBOOK_APP_SECRET data on git.
-
-Therefore, if you want to use this service, you will need to complete with your own valid data.
-In order to do this, you need to register in Facebook developers website: https://developers.facebook.com/apps.
-
-- So, first get your App Id (and App Secret Key).
-- Then, copy `.env.example` file to `.env`:
-- Edit and complete your config file: `.env`:
-
-```
-FACEBOOK_APP_ID = '{YOUR-FB-APP-ID}'
-FACEBOOK_APP_SECRET = '{YOUR-FB-APP-SECRET}'
-FACEBOOK_APP_VERSION = 'v2.9'
-```
-
-
 ## WHAT'S NEXT:
 
-Coming soon (maybe -depending on my work time and family:-), I'll add more useful features, using the Facebook API Graph.
+~~Coming soon~~ Maybe (depending on my work time and family :-)), I'll add more useful features, using the Facebook API Graph.
 
 You can read more information about this API Documentation, in Facebook for Developers website: https://developers.facebook.com/docs/

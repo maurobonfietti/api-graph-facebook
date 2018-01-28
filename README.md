@@ -10,6 +10,7 @@ Download the source code and then execute:
 ```
 $ git clone https://github.com/maurobonfietti/api-graph-facebook.git
 $ cd api-graph-facebook/
+$ cp .env.example .env
 $ composer install
 $ composer start
 ```
@@ -33,7 +34,7 @@ Status: 200 OK
     "last_name": "Tesfai"
 }
 ```
-===
+***
 
 
 ### Get information about a facebook fan page like 'github':
@@ -51,7 +52,7 @@ Status: 200 OK
     "link": "https:\/\/www.facebook.com\/GitHub\/"
 }
 ```
-===
+***
 
 
 ## RUN TESTS:
@@ -79,24 +80,27 @@ Read how to fix the error: "Graph returned an error: Invalid OAuth access token"
 
 ### IMPORTANT NOTE:
 
-For security reasons, I do not publish my app_id and app_secret data in Git.
-Therefore, if you want to use this service, you will need to complete with your own valid data: 'app_id' and 'app_secret'.
+For security reasons, I do not publish my FACEBOOK_APP_ID and FACEBOOK_APP_SECRET data on git.
+Therefore, if you want to use this service, you will need to complete with your own valid data.
 In order to do this, you need to register in Facebook developers website: https://developers.facebook.com/apps.
 
 - So, first get your App Id (and App Secret Key).
-- Then, edit and complete the config file: "src/settings.php":
+- Then, copy ".env.example" file as ".env":
+- Edit config file: ".env":
 
 ```
-    // Configure a Facebook Api Graph Parameters.
-    // Get your app_id and app_secret in: https://developers.facebook.com/apps.
-    'facebook' => [
-        'app_id' => '{app-id}',
-        'app_secret' => '{app-secret}',
-    ],
+# Configure your Facebook Api Graph Parameters.
+# Get your FACEBOOK_APP_ID and FACEBOOK_APP_SECRET,
+# on: "https://developers.facebook.com/apps".
+
+FACEBOOK_APP_ID = '{YOUR-FB-APP-ID}'
+FACEBOOK_APP_SECRET = '{YOUR-FB-APP-SECRET}'
+FACEBOOK_APP_VERSION = 'v2.9'
 ```
 
 
-## NEXT:
+## WHAT'S NEXT:
 
-Coming soon, I'll add more useful features, using the Facebook API Graph.
+Coming soon (maybe -depending on my work time and family:-), I'll add more useful features, using the Facebook API Graph.
+
 You can read more information about this API Documentation, in Facebook for Developers website: https://developers.facebook.com/docs/

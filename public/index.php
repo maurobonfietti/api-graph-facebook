@@ -14,6 +14,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 session_start();
 
+// Use DotEnv config file
 $dotenv = new Dotenv\Dotenv(__DIR__.'/../');
 $dotenv->load();
 

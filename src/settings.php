@@ -17,8 +17,7 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
 
-        // Configure a Facebook Api Graph Parameters.
-        // Get your app_id and app_secret in: https://developers.facebook.com/apps.
+        // Facebook Api Graph Params.
         'facebook' => [
             'app_id' => getenv('FACEBOOK_APP_ID'),
             'app_secret' => getenv('FACEBOOK_APP_SECRET'),

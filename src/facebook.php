@@ -8,24 +8,6 @@ namespace App;
 class facebook
 {
     /**
-     * Get response from Facebook API Graph.
-     *
-     * @param string $url
-     * @param \Facebook\Facebook $fb
-     * @return \Facebook\FacebookResponse
-     */
-    public static function getFacebookResponse($url, $fb)
-    {
-        try {
-            return $fb->get($url, $fb->getApp()->getAccessToken());
-        } catch (\Facebook\Exceptions\FacebookResponseException $e) {
-            return $e;
-        } catch (\Facebook\Exceptions\FacebookSDKException $e) {
-            return $e;
-        }
-    }
-
-    /**
      * Get profile of one Facebook user.
      *
      * @param Request $request
@@ -37,7 +19,7 @@ class facebook
         $name = $request->getAttribute('name');
         $url = sprintf('/%s?fields=id,first_name,last_name', $name);
 
-        return self::getFacebookResponse($url, $fb);
+        return $fb->get($url, $fb->getApp()->getAccessToken());
     }
 
     /**
@@ -52,6 +34,6 @@ class facebook
         $name = $request->getAttribute('name');
         $url = sprintf('/%s?fields=id,name,about,likes,link', $name);
 
-        return self::getFacebookResponse($url, $fb);
+        return $fb->get($url, $fb->getApp()->getAccessToken());
     }
 }

@@ -16,27 +16,25 @@ $app->get('/version', function () {
 });
 
 $app->get('/users/[{name}]', function ($request) {
-    $fb = App\facebook::getUser($request, $this->fb);
+    try {
+        $fb = App\facebook::getUser($request, $this->fb);
 
-    if ($fb instanceof Facebook\Exceptions\FacebookResponseException) {
-        return $this->response->withJson($fb->getResponseData(), $fb->getHttpStatusCode());
+        return $this->response->withJson(json_decode($fb->getBody()));
+    } catch (\Facebook\Exceptions\FacebookResponseException $e) {
+        return $this->response->withJson($e->getResponseData(), $e->getHttpStatusCode());
+    } catch (\Facebook\Exceptions\FacebookSDKException $e) {
+        return $this->response->withJson($e->getResponseData(), $e->getHttpStatusCode());
     }
-    if ($fb instanceof Facebook\Exceptions\FacebookSDKException) {
-        return $this->response->withJson($fb->getResponseData(), $fb->getHttpStatusCode());
-    }
-
-    return $this->response->withJson(json_decode($fb->getBody()));
 });
 
 $app->get('/pages/[{name}]', function ($request) {
-    $fb = App\facebook::getPageFullInfo($request, $this->fb);
+    try {
+        $fb = App\facebook::getPageFullInfo($request, $this->fb);
 
-    if ($fb instanceof Facebook\Exceptions\FacebookResponseException) {
-        return $this->response->withJson($fb->getResponseData(), $fb->getHttpStatusCode());
+        return $this->response->withJson(json_decode($fb->getBody()));
+    } catch (\Facebook\Exceptions\FacebookResponseException $e) {
+        return $this->response->withJson($e->getResponseData(), $e->getHttpStatusCode());
+    } catch (\Facebook\Exceptions\FacebookSDKException $e) {
+        return $this->response->withJson($e->getResponseData(), $e->getHttpStatusCode());
     }
-    if ($fb instanceof Facebook\Exceptions\FacebookSDKException) {
-        return $this->response->withJson($fb->getResponseData(), $fb->getHttpStatusCode());
-    }
-
-    return $this->response->withJson(json_decode($fb->getBody()));
 });

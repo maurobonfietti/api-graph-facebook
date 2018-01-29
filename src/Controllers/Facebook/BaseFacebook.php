@@ -6,6 +6,6 @@ class BaseFacebook
 {
     public function __construct($container)
     {
-        $this->facebook = $container->get('facebook');
+        $this->facebook_service = $container->get('facebook_service');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Services;
 
 class FacebookService extends BaseService
 {
-    public function GetUser($url)
+    public function getUser($url)
     {
         $token = $this->facebook->getApp()->getAccessToken();
         $facebook = $this->facebook->get($url, $token);
@@ -13,7 +13,7 @@ class FacebookService extends BaseService
         return $data;
     }
 
-    public function GetPage($url)
+    public function getPage($url)
     {
         $token = $this->facebook->getApp()->getAccessToken();
         $facebook = $this->facebook->get($url, $token);

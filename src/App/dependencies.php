@@ -1,6 +1,7 @@
 <?php
 
 use App\Handlers\ApiError;
+use App\Services\FacebookService;
 
 $container = $app->getContainer();
 
@@ -13,6 +14,10 @@ $container['facebook'] = function ($c) {
     ]);
 
     return $config;
+};
+
+$container['facebook_service'] = function ($container) {
+    return new FacebookService($container->get('facebook'));
 };
 
 $container['errorHandler'] = function () {

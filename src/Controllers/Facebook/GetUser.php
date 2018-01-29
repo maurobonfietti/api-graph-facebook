@@ -9,9 +9,7 @@ class GetUser extends BaseFacebook
         try {
             $name = $request->getAttribute('name');
             $url = sprintf('/%s?fields=id,first_name,last_name', $name);
-
-            $service = new \App\Services\FacebookService($this->facebook);
-            $data = $service->GetPage($url);
+            $data = $this->facebook_service->getUser($url);
 
             return $response->withJson($data);
         } catch (\Facebook\Exceptions\FacebookResponseException $e) {

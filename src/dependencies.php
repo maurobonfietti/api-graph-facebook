@@ -4,8 +4,7 @@ use App\ApiError;
 
 $container = $app->getContainer();
 
-// Facebook API Graph
-$container['fb'] = function ($c) {
+$container['facebook'] = function ($c) {
     $settings = $c->get('settings')['facebook'];
 
     $config = new Facebook\Facebook([
@@ -17,7 +16,6 @@ $container['fb'] = function ($c) {
     return $config;
 };
 
-// Api Error Handler
 $container["errorHandler"] = function () {
     return new ApiError;
 };

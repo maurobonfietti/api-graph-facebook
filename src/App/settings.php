@@ -2,19 +2,16 @@
 
 return [
     'settings' => [
-        'displayErrorDetails' => true, // set to false in production
-        'addContentLengthHeader' => false, // Allow the web server to send the content-length header
-
+        'displayErrorDetails' => true,
+        'addContentLengthHeader' => false,
         'renderer' => [
             'template_path' => __DIR__.'/../templates/',
         ],
-
         'logger' => [
             'name' => 'slim-app',
             'path' => __DIR__.'/../logs/app.log',
             'level' => \Monolog\Logger::DEBUG,
         ],
-
         'facebook' => [
             'app_id' => getenv('FACEBOOK_APP_ID'),
             'app_secret' => getenv('FACEBOOK_APP_SECRET'),

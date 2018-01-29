@@ -14,5 +14,5 @@ $dotenv->load();
 $settings = require __DIR__.'/../src/App/settings.php';
 $app = new \Slim\App($settings);
 require __DIR__.'/../src/App/dependencies.php';
-require __DIR__.'/../src/App/routes.php';
+require __DIR__.'/../src/App/routing.php';
 $app->run();

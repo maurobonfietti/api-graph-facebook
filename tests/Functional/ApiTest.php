@@ -2,7 +2,7 @@
 
 namespace Tests\Functional;
 
-class FacebookTest extends BaseTestCase
+class ApiTest extends BaseTestCase
 {
     public function testHomePage()
     {

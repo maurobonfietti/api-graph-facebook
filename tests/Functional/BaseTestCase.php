@@ -25,7 +25,7 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
         $settings = require __DIR__ . '/../../src/App/settings.php';
         $app = new App($settings);
         require __DIR__ . '/../../src/App/dependencies.php';
-        require __DIR__ . '/../../src/App/routes.php';
+        require __DIR__ . '/../../src/App/routing.php';
 
         return $app->process($request, $response);
     }

@@ -8,17 +8,15 @@ class FacebookService extends BaseService
     {
         $token = $this->facebook->getApp()->getAccessToken();
         $facebook = $this->facebook->get($url, $token);
-        $data = json_decode($facebook->getBody());
 
-        return $data;
+        return json_decode($facebook->getBody());
     }
 
     public function getPage($url)
     {
         $token = $this->facebook->getApp()->getAccessToken();
         $facebook = $this->facebook->get($url, $token);
-        $data = json_decode($facebook->getBody());
 
-        return $data;
+        return json_decode($facebook->getBody());
     }
 }

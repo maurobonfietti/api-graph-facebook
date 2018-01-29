@@ -11,8 +11,9 @@ class GetUser extends BaseFacebook
             $url = sprintf('/%s?fields=id,first_name,last_name', $name);
             $token = $this->facebook->getApp()->getAccessToken();
             $facebook = $this->facebook->get($url, $token);
+            $data = json_decode($facebook->getBody());
 
-            return $response->withJson(json_decode($facebook->getBody()));
+            return $response->withJson($data);
         } catch (\Facebook\Exceptions\FacebookResponseException $e) {
             return $response->withJson($e->getResponseData(), $e->getHttpStatusCode());
         } catch (\Facebook\Exceptions\FacebookSDKException $e) {

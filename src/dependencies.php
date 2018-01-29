@@ -1,12 +1,11 @@
 <?php
 
-use App\ApiError;
+use App\Handlers\ApiError;
 
 $container = $app->getContainer();
 
 $container['facebook'] = function ($c) {
     $settings = $c->get('settings')['facebook'];
-
     $config = new Facebook\Facebook([
         'app_id' => $settings['app_id'],
         'app_secret' => $settings['app_secret'],
@@ -16,6 +15,6 @@ $container['facebook'] = function ($c) {
     return $config;
 };
 
-$container["errorHandler"] = function () {
+$container['errorHandler'] = function () {
     return new ApiError;
 };

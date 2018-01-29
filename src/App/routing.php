@@ -1,19 +1,8 @@
 <?php
 
-$app->get('/', function () {
-    $msg = ['info' => [
-            'code' => 'Welcome!',
-            'message' => 'Try getting a Facebook profile, for example: users/1234',
-    ]];
+$app->get('/', '\App\Controllers\BaseController:GetHelp');
 
-    return $this->response->withJson($msg);
-});
-
-$app->get('/version', function () {
-    $msg = ['info' => ['api_version' => '18.01']];
-
-    return $this->response->withJson($msg);
-});
+$app->get('/version', '\App\Controllers\BaseController:GetVersion');
 
 $app->get('/users/[{name}]', '\App\Controllers\Facebook\GetUser');
 

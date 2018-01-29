@@ -2,18 +2,13 @@
 
 namespace App\Facebook;
 
-class getUser
+class GetPage extends BaseFacebook
 {
-    public function __construct($container)
-    {
-        $this->fb = $container->get('fb');
-    }
-
-    public function __invoke($request, $response, $args)
+    public function __invoke($request, $response)
     {
         try {
             $name = $request->getAttribute('name');
-            $url = sprintf('/%s?fields=id,first_name,last_name', $name);
+            $url = sprintf('/%s?fields=id,name,about,likes,link', $name);
             $fb = $this->fb->get($url, $this->fb->getApp()->getAccessToken());
 
             return $response->withJson(json_decode($fb->getBody()));

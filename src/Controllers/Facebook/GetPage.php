@@ -9,9 +9,9 @@ class GetPage extends BaseFacebook
         try {
             $name = $request->getAttribute('name');
             $url = sprintf('/%s?fields=id,name,about,likes,link', $name);
-            $token = $this->facebook->getApp()->getAccessToken();
-            $facebook = $this->facebook->get($url, $token);
-            $data = json_decode($facebook->getBody());
+
+            $service = new \App\Services\FacebookService($this->facebook);
+            $data = $service->GetPage($url);
 
             return $response->withJson($data);
         } catch (\Facebook\Exceptions\FacebookResponseException $e) {

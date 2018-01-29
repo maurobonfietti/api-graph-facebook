@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Facebook;
+namespace App\Controllers\Facebook;
 
 class GetPage extends BaseFacebook
 {

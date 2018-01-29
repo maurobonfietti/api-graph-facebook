@@ -15,6 +15,6 @@ $app->get('/version', function () {
     return $this->response->withJson($msg);
 });
 
-$app->get('/users/[{name}]', '\App\Facebook\GetUser');
+$app->get('/users/[{name}]', '\App\Controllers\Facebook\GetUser');
 
-$app->get('/pages/[{name}]', '\App\Facebook\GetPage');
+$app->get('/pages/[{name}]', '\App\Controllers\Facebook\GetPage');

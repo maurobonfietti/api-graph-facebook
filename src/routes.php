@@ -15,26 +15,6 @@ $app->get('/version', function () {
     return $this->response->withJson($msg);
 });
 
-$app->get('/users/[{name}]', function ($request) {
-    try {
-        $fb = App\facebook::getUser($request, $this->fb);
+$app->get('/users/[{name}]', '\App\Facebook\getUser');
 
-        return $this->response->withJson(json_decode($fb->getBody()));
-    } catch (\Facebook\Exceptions\FacebookResponseException $e) {
-        return $this->response->withJson($e->getResponseData(), $e->getHttpStatusCode());
-    } catch (\Facebook\Exceptions\FacebookSDKException $e) {
-        return $this->response->withJson($e->getResponseData(), $e->getHttpStatusCode());
-    }
-});
-
-$app->get('/pages/[{name}]', function ($request) {
-    try {
-        $fb = App\facebook::getPageFullInfo($request, $this->fb);
-
-        return $this->response->withJson(json_decode($fb->getBody()));
-    } catch (\Facebook\Exceptions\FacebookResponseException $e) {
-        return $this->response->withJson($e->getResponseData(), $e->getHttpStatusCode());
-    } catch (\Facebook\Exceptions\FacebookSDKException $e) {
-        return $this->response->withJson($e->getResponseData(), $e->getHttpStatusCode());
-    }
-});
+$app->get('/pages/[{name}]', '\App\Facebook\getPage');

@@ -19,7 +19,7 @@ class ApiTest extends BaseTestCase
         $response = $this->runApp('GET', '/version');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('api_version', (string) $response->getBody());
+        $this->assertContains('version', (string) $response->getBody());
         $this->assertNotContains('error', (string) $response->getBody());
     }
 
@@ -36,15 +36,27 @@ class ApiTest extends BaseTestCase
 
     public function testGetUserNotFound()
     {
+        $response = $this->runApp('GET', '/users/12345678901234567890');
+
+        $this->assertEquals(404, $response->getStatusCode());
+        $this->assertNotContains('first_name', (string) $response->getBody());
+        $this->assertNotContains('last_name', (string) $response->getBody());
+        $this->assertContains('error', (string) $response->getBody());
+        $this->assertContains('OAuthException', (string) $response->getBody());
+    }
+
+    public function testGetUserGraphMethodException()
+    {
         $response = $this->runApp('GET', '/users/123456');
 
         $this->assertEquals(400, $response->getStatusCode());
         $this->assertNotContains('first_name', (string) $response->getBody());
         $this->assertNotContains('last_name', (string) $response->getBody());
         $this->assertContains('error', (string) $response->getBody());
+        $this->assertContains('GraphMethodException', (string) $response->getBody());
     }
 
-    public function testGetPageFullInfo()
+    public function testGetPage()
     {
         $response = $this->runApp('GET', '/pages/github');
 
@@ -56,7 +68,7 @@ class ApiTest extends BaseTestCase
         $this->assertNotContains('error', (string) $response->getBody());
     }
 
-    public function testGetPageFullInfoNotFound()
+    public function testGetPageNotFound()
     {
         $response = $this->runApp('GET', '/pages/github123456');
 
@@ -65,6 +77,7 @@ class ApiTest extends BaseTestCase
         $this->assertNotContains('about', (string) $response->getBody());
         $this->assertNotContains('link', (string) $response->getBody());
         $this->assertContains('error', (string) $response->getBody());
+        $this->assertContains('OAuthException', (string) $response->getBody());
     }
 
     public function testPostHomepageNotAllowed()

@@ -1,4 +1,4 @@
-# API GRAPH FACEBOOK
+# FACEBOOK API GRAPH
 
 It's a API services to retrieve the profile of one facebook user, using the Facebook API Graph.
 
@@ -7,7 +7,7 @@ It's a API services to retrieve the profile of one facebook user, using the Face
 
 Download the source code:
 
-```
+```bash
 $ git clone https://github.com/maurobonfietti/api-graph-facebook.git
 $ cd api-graph-facebook/
 $ cp .env.example .env
@@ -15,7 +15,7 @@ $ cp .env.example .env
 
 Edit and complete the config file `.env`, and then execute:
 
-```
+```bash
 $ composer install
 $ composer start
 $ composer test
@@ -43,7 +43,7 @@ FACEBOOK_APP_VERSION = 'v2.9'
 Requests Examples:
 
 ### Get facebook profile from user '1234':
-```
+```bash
 $ curl http://localhost:8080/users/1234
 ```
 Response:
@@ -60,7 +60,7 @@ Status: 200 OK
 
 
 ### Get information about a facebook fan page like 'github':
-```
+```bash
 $ curl http://localhost:8080/pages/github
 ```
 Response:
@@ -79,9 +79,9 @@ Status: 200 OK
 
 ## RUN TESTS:
 
-Go to the root path of the project, and then run all tests with phpunit:
+Access the root of the project and run all tests with `phpunit`.
 
-```
+```bash
 $ cd api-graph-facebook/
 $ phpunit
 PHPUnit 5.5.4 by Sebastian Bergmann and contributors.
@@ -99,4 +99,4 @@ OK (7 tests, 29 assertions)
 
 ~~Coming soon~~ Maybe (depending on my work time and family :-)), I'll add more useful features, using the Facebook API Graph.
 
-You can read more information about this API Documentation, in Facebook for Developers website: https://developers.facebook.com/docs/
+You can read more information about this API Documentation in [Facebook for Developers website](https://developers.facebook.com/docs)

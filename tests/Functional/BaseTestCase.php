@@ -7,7 +7,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Http\Environment;
 
-class BaseTestCase extends \PHPUnit_Framework_TestCase
+class BaseTestCase extends \PHPUnit\Framework\TestCase
 {
     public function runApp($requestMethod, $requestUri, $requestData = null)
     {

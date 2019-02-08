@@ -79,26 +79,12 @@ Status: 200 OK
 
 ## RUN TESTS:
 
-Access the root of the project and run all tests PHPUnit.
+Access the root of the project and run all tests PHPUnit with `composer test`.
 
 ```bash
 $ cd api-graph-facebook/
 $ phpunit
-PHPUnit 5.5.4 by Sebastian Bergmann and contributors.
-
-.......                                                             7 / 7 (100%)
-
-Time: 2.44 seconds, Memory: 4.00MB
-
-OK (7 tests, 29 assertions)
-
-```
-
-```console
-user@laptop:~$ cd api-graph-facebook/
-user@laptop:~$ composer test
-
-PHPUnit 5.5.4 by Sebastian Bergmann and contributors.
+PHPUnit 6.5.14 by Sebastian Bergmann and contributors.
 
 .......                                                             7 / 7 (100%)
 

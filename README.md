@@ -13,12 +13,24 @@ $ cd api-graph-facebook/
 $ cp .env.example .env
 ```
 
+```console
+user@laptop:~$ git clone https://github.com/maurobonfietti/api-graph-facebook.git
+user@laptop:~$ cd api-graph-facebook/
+user@laptop:~$ cp .env.example .env
+```
+
 Edit and complete the config file `.env`, and then execute:
 
 ```bash
 $ composer install
 $ composer start
 $ composer test
+```
+
+```console
+user@laptop:~$ composer install
+user@laptop:~$ composer start
+user@laptop:~$ composer test
 ```
 
 ### IMPORTANT NOTE:

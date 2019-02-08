@@ -83,14 +83,15 @@ Access the root of the project and run all tests PHPUnit with `composer test`.
 
 ```bash
 $ cd api-graph-facebook/
-$ phpunit
+$ composer test
+> phpunit
 PHPUnit 6.5.14 by Sebastian Bergmann and contributors.
 
-.......                                                             7 / 7 (100%)
+........                                                             8 / 8 (100%)
 
-Time: 2.44 seconds, Memory: 4.00MB
+Time: 1.94 seconds, Memory: 6.00MB
 
-OK (7 tests, 29 assertions)
+OK (8 tests, 29 assertions)
 
 ```
 
